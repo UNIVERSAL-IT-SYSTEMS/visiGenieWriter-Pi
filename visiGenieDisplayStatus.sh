@@ -1,4 +1,14 @@
 #!/bin/bash
+
+#
+#	This script sends data to a Visi Genie program on the display. That display should have
+# 	one of each of string, slider, led digits, cool gauge.
+#	For my testing I've been using the 4D demo project as described in the "Connecting a 4D Display to the Raspberry Pi"
+# 	documentation (4D-AN-P4023) as linked from http://www.4dsystems.com.au/appnotes/
+#
+
+# Shows a couple of different ways of setting the value to be sent
+# I find the pipe method clearer in this case.
 while true ; do
 	# CPU % to gauge
 	#./visiGenieWrite -x -ocool_gauge -i0 -v$(top -bn 1 | awk 'NR>7{s+=$9} END {print s}')
