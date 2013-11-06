@@ -1,0 +1,33 @@
+
+Small command line utility to send data to a 4D Systems display running a VisiGenie project.
+Allows shell scripts to easily send data to a display.
+
+Requires the 4D Systems ViSi-Genie-RaspPi library be already installed as shown at:
+	https://github.com/4dsystems/ViSi-Genie-RaspPi-Library
+
+Parameters:
+	-w Write Object (not implemented yet)
+	-i Object Index
+	-s String
+	-o Object type
+	-v The value to be sent
+	-x Don't cleanly close the connection to genie, speeds things up but not great ...
+	All non-named paramters are concatenated into a single string which is used for the value if
+		the -v parameter is not set. Note that extra spaces are discarded (unless quoted).
+	The value can also be read from stdin, this is done until EOF is read, and only done if
+		-v is not defined and no non-named parameters are provided i.e. it's the last resort
+		to get the value to send.
+	So in order of preference for getting value:
+		1 - the -v parameter
+		2 - concatenation of space seperated non-named parameters
+		3 - stdin
+
+Example Usage:
+	Writes a string to the String3 of the display:
+		visiGenieWrtie -s -i3 -v"The string you want to write"
+	Same but without defining -v:
+		visiGenieWrtie -s -i3 The string you want to write
+	Writes 55 to Slider0 of the dispaly:
+		visiGenieWrite -oslider -o0 -v55
+	The same as above but the value is read from stdin:
+		echo 55 | visiGenieWrite -oslider -o0
