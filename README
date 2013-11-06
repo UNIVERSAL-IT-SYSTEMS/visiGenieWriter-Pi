@@ -9,7 +9,7 @@ Parameters:
 	-w Write Object (not implemented yet)
 	-i Object Index
 	-s String
-	-o Object type
+	-o Object type, either the object type value from geniePi.h, or the constant excluding the "GENIE_OBJ_" and in lower case
 	-v The value to be sent
 	-x Don't cleanly close the connection to genie, speeds things up but not great ...
 	All non-named paramters are concatenated into a single string which is used for the value if
