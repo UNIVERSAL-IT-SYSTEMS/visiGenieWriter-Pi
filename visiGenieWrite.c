@@ -28,9 +28,9 @@
 **		Same but without defining -v:
 **			visiGenieWrtie -s -i3 The string you want to write
 **		Writes 55 to Slider0 of the dispaly:
-**			visiGenieWrite -oslider -o0 -v55
+**			visiGenieWrite -oslider -i0 -v55
 **		The same as above but the value is read from stdin:
-**			echo 55 | visiGenieWrite -oslider -o0
+**			echo 55 | visiGenieWrite -oslider -i0
 */
 
 #include <stdio.h>
